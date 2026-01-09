@@ -1,0 +1,73 @@
+:root {
+    --bg-color: #020617;
+    --eye-base: #f8fafc;
+    --iris-primary: #10b981;
+    --system-gap: 60px;
+}
+
+body {
+    margin: 0;
+    background-color: var(--bg-color);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* The logic: Apply the filter to the container of all merging elements */
+.gooey-system {
+    filter: url('#liquid-merge');
+    display: flex;
+    gap: var(--system-gap);
+}
+
+.eye-unit {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.eye-ball {
+    width: 150px;
+    height: 150px;
+    background: var(--eye-base);
+    border-radius: 50%;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.iris {
+    width: 70px;
+    height: 70px;
+    background: radial-gradient(circle, #000 30%, var(--iris-primary) 100%);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    will-change: transform;
+}
+
+.pupil {
+    width: 25px;
+    height: 25px;
+    background: #000;
+    border-radius: 50%;
+    box-shadow: inset -2px -2px 5px rgba(255,255,255,0.4);
+}
+
+.goo-blob {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: var(--eye-base);
+    border-radius: 50%;
+    z-index: 1; /* Sits behind the eye ball but merges via the filter */
+}
+
+.svg-defs { position: absolute; width: 0; height: 0; }
